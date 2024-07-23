@@ -1,6 +1,5 @@
-export default function createNode(val) {
-  const value = val || null;
+export default function createNode(key, value) {
   const nextNode = null;
-  
-  return { value, nextNode };
+
+  return { key, value, nextNode };
 }
