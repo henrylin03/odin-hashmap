@@ -1,5 +1,8 @@
+import createLinkedList from "./createLinkedList.mjs";
+
 export default function createHashMap() {
   let bucketSize = 16;
+  const buckets = new Array(bucketSize).fill(createLinkedList());
 
   const hash = (key) => {
     const keyIsString = typeof key === "string" || key instanceof String;
