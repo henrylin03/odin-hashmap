@@ -22,13 +22,11 @@ export default function createHashMap() {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
 
-    if (bucket.contains(key)) {
-      // overwrite that value
-    }
-    
-    else bucket.append(key, value);
+    // if (bucket.containsKey(key)) {
+    //   // overwrite that value
+    // } else bucket.append(key, value);
 
-    console.log(bucket.print());
+    bucket.print();
 
     return;
   };
