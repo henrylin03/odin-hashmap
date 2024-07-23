@@ -21,9 +21,7 @@ export default function createHashMap() {
   const set = (key, value) => {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
-
-    // store key/value pair in bucket
-
+    
     // if there is already the _same key_, we overwrite
 
     // if there is not the same key already, we append to linkedlist
