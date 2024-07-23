@@ -1,3 +1,4 @@
 import createHashMap from "./createHashMap.mjs";
 
-createHashMap();
+const hashMap = createHashMap();
+console.log(hashMap.hash("heooll"));
