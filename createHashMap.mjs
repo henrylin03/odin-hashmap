@@ -21,11 +21,12 @@ export default function createHashMap() {
   const set = (key, value) => {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
-    
-    // if there is already the _same key_, we overwrite
 
-    // if there is not the same key already, we append to linkedlist
-    bucket.append(key, value);
+    if (bucket.contains(key)) {
+      // overwrite that value
+    }
+    
+    else bucket.append(key, value);
 
     console.log(bucket.print());
 
