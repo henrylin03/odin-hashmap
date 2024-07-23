@@ -1,5 +1,8 @@
 export default function createHashMap() {
   const hash = (key) => {
+    const keyIsString = typeof key === "string" || key instanceof String;
+    if (!keyIsString) key = String(key);
+
     let hashCode = 0;
     const PRIME_NUMBER = 31;
     let bucketSize = 16;
