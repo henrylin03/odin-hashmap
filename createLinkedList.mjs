@@ -3,10 +3,13 @@ import createNode from "./createNode.mjs";
 export default function createLinkedList() {
   let headNode = null;
 
-  const append = (val) => {
-    const newNode = createNode(val);
+  const append = (key, value) => {
+    const newNode = createNode(key, value);
 
-    if (headNode === null) return (headNode = newNode);
+    if (headNode === null) {
+      headNode = newNode;
+      return;
+    }
 
     let currentNode = headNode;
     while (currentNode.nextNode !== null) currentNode = currentNode.nextNode;
