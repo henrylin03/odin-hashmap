@@ -3,15 +3,12 @@ import createNode from "./createNode.mjs";
 export default function createLinkedList() {
   let headNode = null;
 
-  const findAndReplace = (key, newValue) => {
+  const findKey = (key) => {
     if (headNode === null) return null;
 
     let currentNode = headNode;
     while (currentNode) {
-      if (currentNode.key === key) {
-        currentNode.value = newValue;
-        return null;
-      }
+      if (currentNode.key === key) return currentNode;
       currentNode = currentNode.nextNode;
     }
 
@@ -46,5 +43,5 @@ export default function createLinkedList() {
     return res;
   };
 
-  return { append, findAndReplace, print };
+  return { append, findKey, print };
 }
