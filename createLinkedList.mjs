@@ -3,10 +3,25 @@ import createNode from "./createNode.mjs";
 export default function createLinkedList() {
   let headNode = null;
 
-  const append = (val) => {
-    const newNode = createNode(val);
+  const findNode = (key) => {
+    if (headNode === null) return null;
 
-    if (headNode === null) return (headNode = newNode);
+    let currentNode = headNode;
+    while (currentNode) {
+      if (currentNode.key === key) return currentNode;
+      currentNode = currentNode.nextNode;
+    }
+
+    return null;
+  };
+
+  const append = (key, value) => {
+    const newNode = createNode(key, value);
+
+    if (headNode === null) {
+      headNode = newNode;
+      return;
+    }
 
     let currentNode = headNode;
     while (currentNode.nextNode !== null) currentNode = currentNode.nextNode;
@@ -19,7 +34,7 @@ export default function createLinkedList() {
 
     let currentNode = headNode;
     while (currentNode) {
-      res += `( ${currentNode.value} ) -> `;
+      res += `( ${currentNode.key}: ${currentNode.value} ) -> `;
       currentNode = currentNode.nextNode;
     }
     res += "null";
@@ -28,5 +43,5 @@ export default function createLinkedList() {
     return res;
   };
 
-  return { append, print };
+  return { append, findNode, print };
 }

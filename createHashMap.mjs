@@ -1,5 +1,8 @@
+import createLinkedList from "./createLinkedList.mjs";
+
 export default function createHashMap() {
   let bucketSize = 16;
+  const buckets = new Array(bucketSize).fill(createLinkedList());
 
   const hash = (key) => {
     const keyIsString = typeof key === "string" || key instanceof String;
@@ -16,7 +19,12 @@ export default function createHashMap() {
   };
 
   const set = (key, value) => {
-    return;
+    const hashCode = hash(key);
+    const bucket = buckets[hashCode];
+
+    const duplicateNode = bucket.findNode(key);
+    if (duplicateNode) duplicateNode.value = value;
+    else bucket.append(key, value);
   };
 
   return { hash, set };
