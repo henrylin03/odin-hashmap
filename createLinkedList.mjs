@@ -13,5 +13,20 @@ export default function createLinkedList() {
     currentNode.nextNode = newNode;
   };
 
-  return { append };
+  const print = () => {
+    let res = "";
+    if (headNode === null) return "null";
+
+    let currentNode = headNode;
+    while (currentNode) {
+      res += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+    res += "null";
+
+    console.log(res);
+    return res;
+  };
+
+  return { append, print };
 }
