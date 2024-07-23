@@ -22,7 +22,7 @@ export default function createLinkedList() {
 
     let currentNode = headNode;
     while (currentNode) {
-      res += `( ${currentNode.value} ) -> `;
+      res += `( ${currentNode.key}: ${currentNode.value} ) -> `;
       currentNode = currentNode.nextNode;
     }
     res += "null";

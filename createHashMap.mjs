@@ -27,7 +27,7 @@ export default function createHashMap() {
     // if there is already the _same key_, we overwrite
 
     // if there is not the same key already, we append to linkedlist
-    bucket.append(value);
+    bucket.append(key, value);
 
     console.log(bucket.print());
 
