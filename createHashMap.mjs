@@ -32,5 +32,16 @@ export default function createHashMap() {
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { hash, set, print };
+  const get = (key) => {
+    const hashCode = hash(key);
+    const bucket = buckets[hashCode];
+
+    // check if bucket is empty - if yes, return null
+
+    // if bucket not empty, go to bucket and compare keys to ensure same
+
+    // if the same, retrieve the value, else return null
+  };
+
+  return { hash, set, get, print };
 }
