@@ -28,7 +28,7 @@ export default function createLinkedList() {
     currentNode.nextNode = newNode;
   };
 
-  const print = () => {
+  const toString = () => {
     let res = "";
     if (headNode === null) return "null";
 
@@ -39,9 +39,8 @@ export default function createLinkedList() {
     }
     res += "null";
 
-    console.log(res);
     return res;
   };
 
-  return { append, findNode, print };
+  return { append, findNode, toString };
 }

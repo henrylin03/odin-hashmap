@@ -25,16 +25,12 @@ export default function createHashMap() {
     const duplicateNode = bucket.findNode(key);
     if (duplicateNode) duplicateNode.value = value;
     else bucket.append(key, value);
-
-    bucket.print();
   };
 
-  const print = () => {
-    buckets.forEach((bucket, hashCode) => {
-      console.log("bucket:", hashCode);
-      if (bucket) bucket.print();
-    });
-  };
+  const print = () =>
+    buckets.forEach((bucket, hashCode) =>
+      console.log("bucket:", hashCode, bucket.toString())
+    );
 
   return { hash, set, print };
 }
