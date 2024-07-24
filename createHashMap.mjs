@@ -2,7 +2,7 @@ import createLinkedList from "./createLinkedList.mjs";
 
 export default function createHashMap() {
   let bucketSize = 16;
-  const buckets = new Array(bucketSize).fill(createLinkedList());
+  const buckets = Array.from({ length: bucketSize }, () => createLinkedList());
 
   const hash = (key) => {
     const keyIsString = typeof key === "string" || key instanceof String;
@@ -27,5 +27,10 @@ export default function createHashMap() {
     else bucket.append(key, value);
   };
 
-  return { hash, set };
+  const print = () =>
+    buckets.forEach((bucket, hashCode) =>
+      console.log("bucket:", hashCode, bucket.toString())
+    );
+
+  return { hash, set, print };
 }
