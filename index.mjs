@@ -2,6 +2,8 @@ import createHashMap from "./createHashMap.mjs";
 
 const hashMap = createHashMap();
 
-console.log(hashMap.set("harry", "potter"));
-console.log(hashMap.set("Severus", "Snape"));
-console.log(hashMap.set("harry", "the prince")); // previous entry should be overwritten
+hashMap.set("harry", "potter");
+hashMap.set("Severus", "Snape");
+hashMap.set("harry", "the prince"); // previous entry should be overwritten
+
+hashMap.print()

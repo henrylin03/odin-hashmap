@@ -27,5 +27,12 @@ export default function createHashMap() {
     else bucket.append(key, value);
   };
 
-  return { hash, set };
+  const print = () => {
+    buckets.forEach((bucket, hashCode) => {
+      console.log("bucket:", hashCode);
+      bucket.print();
+    });
+  };
+
+  return { hash, set, print };
 }
