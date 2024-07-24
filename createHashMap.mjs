@@ -15,6 +15,9 @@ export default function createHashMap() {
       hashCode = (PRIME_NUMBER * hashCode + key.charCodeAt(i)) % bucketSize;
     }
 
+    console.log("key", key)
+    console.log("hashCode", hashCode)
+
     return hashCode;
   };
 
@@ -35,6 +38,8 @@ export default function createHashMap() {
   const get = (key) => {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
+
+    buckets.forEach((bucket) => bucket.print());
 
     // check if bucket is empty - if yes, return null
 
