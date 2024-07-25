@@ -3,8 +3,10 @@ import createNode from "./createNode.mjs";
 export default function createLinkedList() {
   let headNode = null;
 
+  const isEmpty = () => headNode === null;
+
   const findNode = (key) => {
-    if (headNode === null) return null;
+    if (isEmpty()) return null;
 
     let currentNode = headNode;
     while (currentNode) {
@@ -18,7 +20,7 @@ export default function createLinkedList() {
   const append = (key, value) => {
     const newNode = createNode(key, value);
 
-    if (headNode === null) {
+    if (isEmpty()) {
       headNode = newNode;
       return;
     }
@@ -30,7 +32,7 @@ export default function createLinkedList() {
 
   const toString = () => {
     let res = "";
-    if (headNode === null) return "null";
+    if (isEmpty()) return "null";
 
     let currentNode = headNode;
     while (currentNode) {
@@ -42,5 +44,5 @@ export default function createLinkedList() {
     return res;
   };
 
-  return { append, findNode, toString };
+  return { append, findNode, isEmpty, toString };
 }
