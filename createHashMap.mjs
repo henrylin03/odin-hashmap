@@ -27,10 +27,19 @@ export default function createHashMap() {
     else bucket.append(key, value);
   };
 
+  const get = (key) => {
+    const hashCode = hash(key);
+    const bucket = buckets[hashCode];
+
+    const matchingNode = bucket.findNode(key);
+
+    return matchingNode ? matchingNode.value : null;
+  };
+
   const print = () =>
     buckets.forEach((bucket, hashCode) =>
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { hash, set, print };
+  return { hash, set, get, print };
 }
