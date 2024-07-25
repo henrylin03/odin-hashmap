@@ -32,8 +32,8 @@ export default function createHashMap() {
     const bucket = buckets[hashCode];
 
     const matchingNode = bucket.findNode(key);
-    
-    return matchingNode.value;
+
+    return matchingNode ? matchingNode.value : null;
   };
 
   const print = () =>
