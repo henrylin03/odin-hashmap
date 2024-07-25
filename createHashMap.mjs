@@ -31,10 +31,9 @@ export default function createHashMap() {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
 
-
-    // if bucket not empty, go to bucket and compare keys to ensure same
-
-    // if the same, retrieve the value, else return null
+    const matchingNode = bucket.findNode(key);
+    
+    return matchingNode.value;
   };
 
   const print = () =>
