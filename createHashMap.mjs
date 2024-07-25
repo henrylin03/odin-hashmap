@@ -31,8 +31,6 @@ export default function createHashMap() {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
 
-    if (bucket.isEmpty()) return null;
-    // check if bucket is empty - if yes, return null
 
     // if bucket not empty, go to bucket and compare keys to ensure same
 
