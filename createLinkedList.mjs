@@ -51,13 +51,13 @@ export default function createLinkedList() {
     while (currentNode.nextNode.key !== key) {
       currentNode = currentNode.nextNode;
     }
-    currentNode.nextNode = null;
+    currentNode.nextNode = currentNode.nextNode.nextNode;
   };
 
   const toString = () => {
-    let res = "";
     if (isEmpty()) return "null";
 
+    let res = "";
     let currentNode = headNode;
     while (currentNode) {
       res += `( ${currentNode.key}: ${currentNode.value} ) -> `;
