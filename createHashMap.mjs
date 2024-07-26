@@ -19,7 +19,13 @@ export default function createHashMap() {
   };
 
   const length = () => {
-    return;
+    let count = 0;
+
+    for (let i = 0; i < bucketSize; i++) {
+      count += buckets[i].length();
+    }
+
+    return count;
   };
 
   const set = (key, value) => {
