@@ -18,6 +18,10 @@ export default function createHashMap() {
     return hashCode;
   };
 
+  const length = () => {
+    return;
+  };
+
   const set = (key, value) => {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
@@ -57,5 +61,5 @@ export default function createHashMap() {
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { get, has, hash, print, remove, set };
+  return { get, has, hash, length, print, remove, set };
 }

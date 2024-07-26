@@ -8,20 +8,16 @@ hashMap.set("Severus", "Snape");
 hashMap.set("harry", "the prince"); // previous entry should be overwritten
 
 console.log(`
-INITIAL`);
-hashMap.print();
+INITIAL: ${hashMap.length()}`); // expected: 3
 
 hashMap.remove("harry");
 console.log(`
-AGAIN`);
-hashMap.print(); // harry should be gone
+AGAIN: ${hashMap.length()}`); // expected: 2
 
 hashMap.remove("Severus");
 console.log(`
-AGAIN`);
-hashMap.print(); // severus should be gone
+AGAIN: ${hashMap.length()}`); // expected: 1
 
 hashMap.remove("asdf");
 console.log(`
-AGAIN`);
-hashMap.print(); // nothing should happen
+AGAIN: ${hashMap.length()}`); // expected: 1
