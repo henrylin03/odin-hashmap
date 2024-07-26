@@ -46,7 +46,7 @@ export default function createHashMap() {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
 
-    if (bucket.isEmpty() || !has(key)) return false;
+    if (bucket.isEmpty() || !bucket.findNode(key)) return false;
     bucket.removeNode(key);
 
     return true;

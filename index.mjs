@@ -16,7 +16,7 @@ console.log(`
 AGAIN`);
 hashMap.print(); // harry should be gone
 
-hashMap.remove("severus");
+hashMap.remove("Severus");
 console.log(`
 AGAIN`);
 hashMap.print(); // severus should be gone
