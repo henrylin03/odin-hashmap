@@ -42,10 +42,20 @@ export default function createHashMap() {
     return bucket.findNode(key) ? true : false;
   };
 
+  const remove = (key) => {
+    const hashCode = hash(key);
+    const bucket = buckets[hashCode];
+
+    if (!bucket.findNode(key)) return false;
+    bucket.removeNode(key);
+
+    return true;
+  };
+
   const print = () =>
     buckets.forEach((bucket, hashCode) =>
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { get, has, hash, print, set };
+  return { get, has, hash, print, remove, set };
 }
