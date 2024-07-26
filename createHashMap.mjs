@@ -47,6 +47,9 @@ export default function createHashMap() {
     const bucket = buckets[hashCode];
 
     if (bucket.isEmpty()) return false;
+    bucket.removeNode(key);
+
+    //TODO: handle if the key doesn't actually exist (could be a guard clause i guess but then it would mean unnecessary time/memory complexity to traverse)
 
     // ELSE IF bucket has single element, pop the node [add method to linkedList factory]
     // ELSE traverse to the node RIGHT BEFORE and have the .nextNode point to null [add method to linkedList factory][might need separate method to find the idx and then use that to remove that elem]
