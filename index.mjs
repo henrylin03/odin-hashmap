@@ -5,19 +5,10 @@ const hashMap = createHashMap();
 hashMap.set("harry", "potter");
 hashMap.set("arrhy", "what is this");
 hashMap.set("Severus", "Snape");
-hashMap.set("harry", "the prince"); // previous entry should be overwritten
+hashMap.set("harry", "the prince");
 
-console.log(`
-INITIAL: ${hashMap.length()}`); // expected: 3
-
-hashMap.remove("harry");
-console.log(`
-AGAIN: ${hashMap.length()}`); // expected: 2
-
-hashMap.remove("Severus");
-console.log(`
-AGAIN: ${hashMap.length()}`); // expected: 1
-
-hashMap.remove("asdf");
-console.log(`
-AGAIN: ${hashMap.length()}`); // expected: 1
+hashMap.print();
+console.log("----");
+hashMap.clear();
+console.log("----");
+hashMap.print();
