@@ -44,5 +44,5 @@ export default function createLinkedList() {
     return res;
   };
 
-  return { append, findNode, toString };
+  return { append, findNode, isEmpty, toString };
 }
