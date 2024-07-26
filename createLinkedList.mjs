@@ -30,6 +30,19 @@ export default function createLinkedList() {
     currentNode.nextNode = newNode;
   };
 
+  const length = () => {
+    let count = 0;
+    if (isEmpty()) return count;
+
+    let currentNode = headNode;
+    while (currentNode) {
+      count++;
+      currentNode = currentNode.nextNode;
+    }
+
+    return count;
+  };
+
   const toString = () => {
     let res = "";
     if (isEmpty()) return "null";
@@ -44,5 +57,5 @@ export default function createLinkedList() {
     return res;
   };
 
-  return { append, findNode, isEmpty, toString };
+  return { append, findNode, isEmpty, length, toString };
 }

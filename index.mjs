@@ -14,3 +14,13 @@ hashMap.remove("harry");
 console.log(`
 AGAIN`);
 hashMap.print(); // harry should be gone
+
+hashMap.remove("severus");
+console.log(`
+AGAIN`);
+hashMap.print(); // severus should be gone
+
+hashMap.remove("asdf");
+console.log(`
+AGAIN`);
+hashMap.print(); // nothing should happen
