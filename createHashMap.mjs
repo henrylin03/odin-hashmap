@@ -36,10 +36,16 @@ export default function createHashMap() {
     return matchingNode ? matchingNode.value : null;
   };
 
+  const has = (key) => {
+    const hashCode = hash(key);
+    const bucket = buckets[hashCode];
+    return bucket.findNode(key) ? true : false;
+  };
+
   const print = () =>
     buckets.forEach((bucket, hashCode) =>
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { hash, set, get, print };
+  return { get, has, hash, print, set };
 }
