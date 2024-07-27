@@ -25,8 +25,13 @@ export default function createHashMap() {
     const storedKeysCount = length();
     const threshold = Math.ceil(LOAD_FACTOR * bucketSize);
 
+    console.log("bucketSize:", bucketSize);
+    console.log("threshold: ", threshold);
+
     if (storedKeysCount >= threshold) {
+      console.log("!!!TIME TO EXPAND!!!");
       bucketSize *= 2;
+      console.log("bucketSize:", bucketSize);
     }
   };
 
@@ -45,6 +50,8 @@ export default function createHashMap() {
     const duplicateNode = bucket.findNode(key);
     if (duplicateNode) duplicateNode.value = value;
     else bucket.append(key, value);
+
+    setBucketSize();
   };
 
   const get = (key) => {
