@@ -28,11 +28,11 @@ export default function createHashMap() {
     console.log("bucketSize:", bucketSize);
     console.log("threshold: ", threshold);
 
-    if (storedKeysCount >= threshold) {
-      console.log("!!!TIME TO EXPAND!!!");
-      bucketSize *= 2;
-      console.log("bucketSize:", bucketSize);
-    }
+    if (storedKeysCount < threshold) return;
+
+    console.log("!!!TIME TO EXPAND!!!");
+    bucketSize *= 2;
+    console.log("bucketSize:", bucketSize);
   };
 
   const length = () => {
