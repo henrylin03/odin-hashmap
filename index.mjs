@@ -14,6 +14,6 @@ hashMap.print();
 hashMap.set("hermione", "granger");
 // hashMap.set("ron", "weasley");
 
-// console.log(`
-// The bucket size is now ${hashMap.getBucketSize()}`);
-// hashMap.print();
+console.log(`
+The bucket size is now ${hashMap.getBucketSize()}`);
+hashMap.print();

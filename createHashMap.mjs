@@ -33,10 +33,12 @@ export default function createHashMap() {
     console.log("!!!TIME TO EXPAND!!!");
     bucketSize *= 2;
     console.log("bucketSize:", bucketSize);
+    const newBuckets = generateBuckets();
   };
 
-  const generateBuckets = () =>
-    Array.from({ length: bucketSize }, () => createLinkedList());
+  function generateBuckets() {
+    return Array.from({ length: bucketSize }, () => createLinkedList());
+  }
 
   const length = () => {
     let count = 0;
