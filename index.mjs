@@ -14,3 +14,20 @@ test.set("ice cream", "white");
 test.set("jacket", "blue");
 test.set("kite", "pink");
 test.set("lion", "golden");
+
+// pushing past load factor
+test.set("moon", "silver");
+
+// override some values
+test.set("apple", "green"); // passed
+
+// testing other methods
+
+// console.log(test.get("apple")); // expected: "green"
+// console.log(test.has("elephant")); // expected: true
+// console.log(test.remove("moon")); // passed
+console.log(test.keys());
+console.log(test.values());
+console.log(test.entries());
+
+test.clear();
