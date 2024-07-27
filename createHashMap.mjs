@@ -66,8 +66,7 @@ export default function createHashMap() {
     for (let i = 0; i < bucketSize; i++) {
       const bucket = buckets[i];
       if (bucket.isEmpty()) continue;
-      // ELSE IF bucket is not empty...
-      // THEN traverse the linked list [implement in linkedlist]
+      res.push(bucket.getKeyValues());
     }
 
     return res;
@@ -81,5 +80,5 @@ export default function createHashMap() {
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { clear, entries, get, has, hash, keys, length, print, remove, set };
+  return { clear, entries, get, has, hash, length, print, remove, set };
 }
