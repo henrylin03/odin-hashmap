@@ -3,7 +3,7 @@ import createLinkedList from "./createLinkedList.mjs";
 export default function createHashMap() {
   let bucketSize = 16;
   let buckets = generateBuckets();
-  const LOAD_FACTOR = 0.8; // can be a number between .75 and 1
+  const LOAD_FACTOR = 0.75; // can be a number between .75 and 1
 
   const hash = (key) => {
     const keyIsString = typeof key === "string" || key instanceof String;
