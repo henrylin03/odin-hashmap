@@ -32,8 +32,7 @@ export default function createHashMap() {
     for (let i = 0; i < bucketSize; i++) {
       const bucket = buckets[i];
       if (bucket.isEmpty()) continue;
-
-      // traverse bucket to get all the keys
+      res.push(bucket.getKeys());
     }
 
     return res;
