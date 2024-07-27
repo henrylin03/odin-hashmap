@@ -54,6 +54,20 @@ export default function createLinkedList() {
     currentNode.nextNode = currentNode.nextNode.nextNode;
   };
 
+  const getKeyValues = () => {
+    const resArray = [];
+
+    if (isEmpty()) return resArray;
+
+    let currentNode = headNode;
+    while (currentNode) {
+      resArray.push([currentNode.key, currentNode.value]);
+      currentNode = currentNode.nextNode;
+    }
+
+    return resArray;
+  };
+
   const toString = () => {
     if (isEmpty()) return "null";
 
@@ -68,5 +82,13 @@ export default function createLinkedList() {
     return res;
   };
 
-  return { append, findNode, isEmpty, length, removeNode, toString };
+  return {
+    append,
+    findNode,
+    getKeyValues,
+    isEmpty,
+    length,
+    removeNode,
+    toString,
+  };
 }

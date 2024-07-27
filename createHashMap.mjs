@@ -20,11 +20,9 @@ export default function createHashMap() {
 
   const length = () => {
     let count = 0;
-
     for (let i = 0; i < bucketSize; i++) {
       count += buckets[i].length();
     }
-
     return count;
   };
 
@@ -62,6 +60,18 @@ export default function createHashMap() {
     return true;
   };
 
+  const entries = () => {
+    const res = [];
+
+    for (let i = 0; i < bucketSize; i++) {
+      const bucket = buckets[i];
+      if (bucket.isEmpty()) continue;
+      res.push(bucket.getKeyValues());
+    }
+
+    return res;
+  };
+
   const clear = () =>
     (buckets = Array.from({ length: bucketSize }, () => createLinkedList()));
 
@@ -70,5 +80,5 @@ export default function createHashMap() {
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { clear, get, has, hash, length, print, remove, set };
+  return { clear, entries, get, has, hash, length, print, remove, set };
 }
