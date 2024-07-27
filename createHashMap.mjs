@@ -1,8 +1,9 @@
 import createLinkedList from "./createLinkedList.mjs";
 
 export default function createHashMap() {
-  let bucketSize = 4; // TODO: PUT BACK TO 16
-  let buckets = Array.from({ length: bucketSize }, () => createLinkedList());
+  let bucketSize = 4; // TODO: PUT BACK TO 16 // aka capacity
+  //? getBucketSize() method to handle all the logic? if it's less than 16 (currently, 4, for testing), then just return 16 (take the max of (16, X))
+  let buckets = Array.from({ length: bucketSize }, () => createLinkedList()); //? potentially this can go into a "generateBuckets()" method, which then checks the bucketSize at the time before generating?
 
   const hash = (key) => {
     const keyIsString = typeof key === "string" || key instanceof String;
@@ -18,8 +19,16 @@ export default function createHashMap() {
     return hashCode;
   };
 
-  // TODO: delete
-  const getBucketSize = () => bucketSize;
+  const getBucketSize = () => bucketSize; // TODO: delete
+  const setBucketSize = () => {
+    const LOAD_FACTOR = 0.8; // can be a number between .75 and 1
+    const storedKeysCount = length();
+    const threshold = Math.ceil(LOAD_FACTOR * bucketSize);
+
+    if (storedKeysCount >= threshold) {
+      bucketSize *= 2;
+    }
+  };
 
   const length = () => {
     let count = 0;
