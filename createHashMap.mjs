@@ -67,7 +67,7 @@ export default function createHashMap() {
     for (let i = 0; i < bucketSize; i++) {
       const bucket = buckets[i];
       if (bucket.isEmpty()) continue;
-      res.push(bucket.getKeys());
+      res.push(...bucket.getKeys());
     }
 
     return res;
@@ -79,7 +79,7 @@ export default function createHashMap() {
     for (let i = 0; i < bucketSize; i++) {
       const bucket = buckets[i];
       if (bucket.isEmpty()) continue;
-      res.push(bucket.getValues());
+      res.push(...bucket.getValues());
     }
 
     return res;
