@@ -1,7 +1,7 @@
 import createLinkedList from "./createLinkedList.mjs";
 
 export default function createHashMap() {
-  let bucketSize = 16;
+  let bucketSize = 4;
   let buckets = generateBuckets();
 
   const hash = (key) => {
@@ -110,14 +110,14 @@ export default function createHashMap() {
     for (let i = 0; i < bucketSize; i++) {
       const bucket = buckets[i];
       if (bucket.isEmpty()) continue;
-      res.push(bucket.getKeyValues());
+      res.push(...bucket.getKeyValues());
     }
 
     return res;
   };
 
   const clear = () => {
-    bucketSize = 16;
+    bucketSize = 4;
     buckets = generateBuckets();
   };
 
