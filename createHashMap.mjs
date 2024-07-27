@@ -2,7 +2,7 @@ import createLinkedList from "./createLinkedList.mjs";
 
 export default function createHashMap() {
   let bucketSize = 16;
-  let buckets = Array.from({ length: bucketSize }, () => createLinkedList());
+  let buckets = generateBuckets();
 
   const hash = (key) => {
     const keyIsString = typeof key === "string" || key instanceof String;
@@ -17,6 +17,23 @@ export default function createHashMap() {
 
     return hashCode;
   };
+
+  const setBucketSize = () => {
+    const LOAD_FACTOR = 0.8; // can be a number between .75 and 1
+    const storedKeysCount = length();
+    const threshold = Math.ceil(LOAD_FACTOR * bucketSize);
+
+    if (storedKeysCount < threshold) return;
+
+    const currentEntries = entries();
+    bucketSize *= 2;
+    buckets = generateBuckets();
+    currentEntries.forEach((entry) => set(entry[0], entry[1]));
+  };
+
+  function generateBuckets() {
+    return Array.from({ length: bucketSize }, () => createLinkedList());
+  }
 
   const length = () => {
     let count = 0;
@@ -33,6 +50,8 @@ export default function createHashMap() {
     const duplicateNode = bucket.findNode(key);
     if (duplicateNode) duplicateNode.value = value;
     else bucket.append(key, value);
+
+    setBucketSize();
   };
 
   const get = (key) => {
@@ -91,14 +110,16 @@ export default function createHashMap() {
     for (let i = 0; i < bucketSize; i++) {
       const bucket = buckets[i];
       if (bucket.isEmpty()) continue;
-      res.push(bucket.getKeyValues());
+      res.push(...bucket.getKeyValues());
     }
 
     return res;
   };
 
-  const clear = () =>
-    (buckets = Array.from({ length: bucketSize }, () => createLinkedList()));
+  const clear = () => {
+    bucketSize = 16;
+    buckets = generateBuckets();
+  };
 
   const print = () =>
     buckets.forEach((bucket, hashCode) =>
