@@ -48,9 +48,9 @@ export default function createHashMap() {
     const bucket = buckets[hashCode];
 
     const duplicateNode = bucket.findNode(key);
-    if (duplicateNode) duplicateNode.value = value;
-    else bucket.append(key, value);
+    if (duplicateNode) return (duplicateNode.value = value);
 
+    bucket.append(key, value);
     setBucketSize();
   };
 
