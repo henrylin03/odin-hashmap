@@ -82,6 +82,20 @@ export default function createLinkedList() {
     return keys;
   };
 
+  const getValues = () => {
+    const values = [];
+
+    if (isEmpty()) return values;
+
+    let currentNode = headNode;
+    while (currentNode) {
+      values.push(currentNode.value);
+      currentNode = currentNode.nextNode;
+    }
+
+    return values;
+  };
+
   const toString = () => {
     if (isEmpty()) return "null";
 
@@ -101,6 +115,7 @@ export default function createLinkedList() {
     findNode,
     getKeys,
     getKeyValues,
+    getValues,
     isEmpty,
     length,
     removeNode,

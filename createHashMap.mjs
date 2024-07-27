@@ -26,18 +26,6 @@ export default function createHashMap() {
     return count;
   };
 
-  const keys = () => {
-    const res = [];
-
-    for (let i = 0; i < bucketSize; i++) {
-      const bucket = buckets[i];
-      if (bucket.isEmpty()) continue;
-      res.push(bucket.getKeys());
-    }
-
-    return res;
-  };
-
   const set = (key, value) => {
     const hashCode = hash(key);
     const bucket = buckets[hashCode];
@@ -73,6 +61,30 @@ export default function createHashMap() {
     }
   };
 
+  const keys = () => {
+    const res = [];
+
+    for (let i = 0; i < bucketSize; i++) {
+      const bucket = buckets[i];
+      if (bucket.isEmpty()) continue;
+      res.push(bucket.getKeys());
+    }
+
+    return res;
+  };
+
+  const values = () => {
+    const res = [];
+
+    for (let i = 0; i < bucketSize; i++) {
+      const bucket = buckets[i];
+      if (bucket.isEmpty()) continue;
+      res.push(bucket.getValues());
+    }
+
+    return res;
+  };
+
   const entries = () => {
     const res = [];
 
@@ -93,5 +105,17 @@ export default function createHashMap() {
       console.log("bucket:", hashCode, bucket.toString())
     );
 
-  return { clear, entries, get, has, hash, keys, length, print, remove, set };
+  return {
+    clear,
+    entries,
+    get,
+    has,
+    hash,
+    keys,
+    length,
+    print,
+    remove,
+    set,
+    values,
+  };
 }

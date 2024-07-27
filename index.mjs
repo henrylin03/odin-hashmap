@@ -7,6 +7,6 @@ hashMap.set("arrhy", "what is this");
 hashMap.set("Severus", "Snape");
 hashMap.set("harry", "the prince");
 
-console.log(hashMap.keys()); // expected: ["harry", "arrhy", "Severus"]
+console.log(hashMap.values()); // expected: ["the prince", "what is this", "Snape"]
 hashMap.remove("harry");
-console.log(hashMap.keys()); // expected: ["arrhy", "Severus"]
+console.log(hashMap.values()); // expected: ["what is this", "Snape"]
