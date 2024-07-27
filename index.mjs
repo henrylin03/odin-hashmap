@@ -8,7 +8,7 @@ hashMap.set("Severus", "Snape");
 hashMap.set("harry", "the prince");
 
 hashMap.print();
-console.log("----")
+console.log("----");
 
 hashMap.set("hermione", "granger");
 hashMap.set("ron", "weasley");
