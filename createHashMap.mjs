@@ -55,9 +55,10 @@ export default function createHashMap() {
     const bucket = buckets[hashCode];
 
     if (!bucket.findNode(key)) return false;
-    bucket.removeNode(key);
-
-    return true;
+    else {
+      bucket.removeNode(key);
+      return true;
+    }
   };
 
   const entries = () => {
